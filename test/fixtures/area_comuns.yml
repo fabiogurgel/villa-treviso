@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo: 1
+  descricao: MyString
+  localizacao: MyString
+  quantidade_reserva: 1
+  tipo_area_comum: one
+
+two:
+  codigo: 1
+  descricao: MyString
+  localizacao: MyString
+  quantidade_reserva: 1
+  tipo_area_comum: two

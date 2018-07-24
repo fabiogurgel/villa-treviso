@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tipo Area Comuns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th>Descricao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tipo_area_comuns.each do |tipo_area_comum| %>
+      <tr>
+        <td><%= tipo_area_comum.codigo %></td>
+        <td><%= tipo_area_comum.descricao %></td>
+        <td><%= link_to 'Show', tipo_area_comum %></td>
+        <td><%= link_to 'Edit', edit_tipo_area_comum_path(tipo_area_comum) %></td>
+        <td><%= link_to 'Destroy', tipo_area_comum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tipo Area Comum', new_tipo_area_comum_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  agencia: one
+  cliente: one
+  codigo: MyString
+  descricao: MyString
+  saldo: 1.5
+
+two:
+  agencia: two
+  cliente: two
+  codigo: MyString
+  descricao: MyString
+  saldo: 1.5

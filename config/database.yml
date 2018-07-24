@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: postgres
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: banco_development
+  schema_search_path: adm_banco
+
+test:
+  <<: *default
+  database: banco_test
+
+production:
+  <<: *default
+  database: banco_production
