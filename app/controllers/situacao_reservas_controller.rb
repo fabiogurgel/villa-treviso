@@ -15,7 +15,7 @@ class SituacaoReservasController < ApplicationController
   # GET /situacao_reservas/new
   def new
     @situacao_reserva = SituacaoReserva.new
-    @periodo_reservas = SituacaoReserva.all.paginate(page: params[:page], per_page: 5)
+    @situacao_reservas = SituacaoReserva.all.paginate(page: params[:page], per_page: 5)
     @action = { title: "Nova", button: "Salvar"}
     @proximo_codigo = SituacaoReserva.proximo_codigo
   end
@@ -31,7 +31,7 @@ class SituacaoReservasController < ApplicationController
   # POST /situacao_reservas.json
   def create
     @situacao_reserva = SituacaoReserva.new(situacao_reserva_params)
-    @periodo_reservas = SituacaoReserva.all.paginate(page: params[:page], per_page: 5)
+    @situacao_reservas = SituacaoReserva.all.paginate(page: params[:page], per_page: 5)
     @action = { title: "Nova", button: "Salvar"}
 
     respond_to do |format|
