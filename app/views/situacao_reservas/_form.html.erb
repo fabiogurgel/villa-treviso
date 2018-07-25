@@ -1,0 +1,79 @@
+<%= form_for(situacao_reserva) do |f| %>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="page-header"><%= action[:title] %> Situação da Reserva</h2>
+    </div><!-- fim .panel-heading -->
+      <div class="panel-body">
+        <% if situacao_reserva.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(situacao_reserva.errors.count, "error") %> prohibited this situacao_reserva from being saved:</h2>
+
+            <ul>
+            <% situacao_reserva.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="row">
+           <div class="col-md-4">
+            <%= f.label :codigo %>
+          </div>
+          <div class="col-md-4">
+            <%= f.label :descricao %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <%= f.text_field :codigo, {value: @proximo_codigo, readonly: true, class:"form-control"} %>
+          </div>
+          <div class="col-md-4">
+            <%= f.text_field :descricao, class:"form-control"  %>
+          </div>
+          <div class="col-md-4">
+              <button type="submit" class="btn btn-default"><%= action[:button] %></button>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+
+      <% unless @situacao_reservas.blank? %>
+          <table class='table table-striped'>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @situacao_reservas.each do |situacao_reserva| %>
+                <tr>
+                  <td><%= situacao_reserva.codigo %></td>
+                  <td><%= situacao_reserva.descricao %></td>
+                  <td>
+                    <div class="dropdown">
+                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Ações
+                     <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                       <li>  <%= link_to 'Editar', edit_situacao_reserva_path(situacao_reserva) %></li>
+                       <li><%= link_to 'Deletar', situacao_reserva, method: :delete, data: { confirm: "Deseja deletar #{situacao_reserva.descricao} ?" } %></li>
+                     </ul>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+            <thead>
+              <tr>
+                <td colspan="3"><%= will_paginate @situacao_reservas %></td>
+              </tr>
+            </thead>
+          </table>
+      <% end %>
+    </div>
+  </div>
+</div>
