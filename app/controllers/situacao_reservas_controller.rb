@@ -1,16 +1,6 @@
 class SituacaoReservasController < ApplicationController
-  before_action :set_situacao_reserva, only: [:show, :edit, :update, :destroy]
-
-  # GET /situacao_reservas
-  # GET /situacao_reservas.json
-  def index
-    @situacao_reservas = SituacaoReserva.all
-  end
-
-  # GET /situacao_reservas/1
-  # GET /situacao_reservas/1.json
-  def show
-  end
+  before_action :set_situacao_reserva, only: [:edit, :update, :destroy]
+  before_action :authenticate_usuario!
 
   # GET /situacao_reservas/new
   def new

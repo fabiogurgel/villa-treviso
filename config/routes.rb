@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :usuarios
   resources :tipo_usuarios
   # match 'tipo_usuarios', to: 'tipo_usuarios#new', via: [:get, :post]
   # match 'tipo_usuarios/create', to: 'tipo_usuarios#create', via: [:get, :post]

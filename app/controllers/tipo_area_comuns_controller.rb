@@ -1,16 +1,6 @@
 class TipoAreaComunsController < ApplicationController
-  before_action :set_tipo_area_comum, only: [:show, :edit, :update, :destroy]
-
-  # GET /tipo_area_comuns
-  # GET /tipo_area_comuns.json
-  def index
-    @tipo_area_comuns = TipoAreaComum.all
-  end
-
-  # GET /tipo_area_comuns/1
-  # GET /tipo_area_comuns/1.json
-  def show
-  end
+  before_action :set_tipo_area_comum, only: [:edit, :update, :destroy]
+  before_action :authenticate_usuario!
 
   # GET /tipo_area_comuns/new
   def new

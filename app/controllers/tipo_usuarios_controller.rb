@@ -1,5 +1,6 @@
 class TipoUsuariosController < ApplicationController
   before_action :set_tipo_usuario, only: [:edit, :update, :destroy]
+  before_action :authenticate_usuario!
 
   # GET /tipo_usuarios/new
   def new
@@ -37,6 +38,7 @@ class TipoUsuariosController < ApplicationController
   # PATCH/PUT /tipo_usuarios/1
   # PATCH/PUT /tipo_usuarios/1.json
   def update
+    @proximo_codigo = @tipo_usuario.codigo
     respond_to do |format|
       if @tipo_usuario.update(tipo_usuario_params)
         format.html { redirect_to action: "new", notice: 'TIpo Usuário atualizado com sucesso..' }

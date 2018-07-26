@@ -1,16 +1,6 @@
 class PeriodoReservasController < ApplicationController
-  before_action :set_periodo_reserva, only: [:show, :edit, :update, :destroy]
-
-  # GET /periodo_reservas
-  # GET /periodo_reservas.json
-  def index
-    @periodo_reservas = PeriodoReserva.all
-  end
-
-  # GET /periodo_reservas/1
-  # GET /periodo_reservas/1.json
-  def show
-  end
+  before_action :set_periodo_reserva, only: [:edit, :update, :destroy]
+  before_action :authenticate_usuario!
 
   # GET /periodo_reservas/new
   def new

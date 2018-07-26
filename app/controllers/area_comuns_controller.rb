@@ -1,16 +1,6 @@
 class AreaComunsController < ApplicationController
-  before_action :set_area_comum, only: [:show, :edit, :update, :destroy]
-
-  # GET /area_comuns
-  # GET /area_comuns.json
-  def index
-    @area_comuns = AreaComum.all
-  end
-
-  # GET /area_comuns/1
-  # GET /area_comuns/1.json
-  def show
-  end
+  before_action :set_area_comum, only: [:edit, :update, :destroy]
+  before_action :authenticate_usuario!
 
   # GET /area_comuns/new
   def new
