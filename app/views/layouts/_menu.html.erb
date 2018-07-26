@@ -11,33 +11,34 @@
         </button>
         <a class="navbar-brand" href="/home/index">Villa Treviso</a>
       </div>
-
+      <% if current_usuario.ativo %>
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li role="separator" class="divider"></li>
-               <li><%= link_to('Área Comum', new_area_comum_path) %></li>
-               <li><%= link_to('Tipo Área Comum', new_tipo_area_comum_path) %></li>
-               <li role="separator" class="divider"></li>
-               <li><%= link_to('Período da Reserva', new_periodo_reserva_path) %></li>
-               <li><%= link_to('Situação da Reserva', new_situacao_reserva_path) %></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to('Tipo Usuário', new_tipo_usuario_path) %></li>
-              <li role="separator" class="divider"></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li role="separator" class="divider"></li>
-               <li><%= link_to('Em Construção', new_tipo_usuario_path) %></li>
-              <li role="separator" class="divider"></li>
-            </ul>
-          </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li role="separator" class="divider"></li>
+                 <li><%= link_to('Área Comum', new_area_comum_path) %></li>
+                 <li><%= link_to('Tipo Área Comum', new_tipo_area_comum_path) %></li>
+                 <li role="separator" class="divider"></li>
+                 <li><%= link_to('Período da Reserva', new_periodo_reserva_path) %></li>
+                 <li><%= link_to('Situação da Reserva', new_situacao_reserva_path) %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to('Tipo Usuário', new_tipo_usuario_path) %></li>
+                <li role="separator" class="divider"></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li role="separator" class="divider"></li>
+                 <li><%= link_to('Em Construção', new_tipo_usuario_path) %></li>
+                <li role="separator" class="divider"></li>
+              </ul>
+            </li>
+          </ul>
+        <% end %>
         <p class="navbar-text pull-right">
           <% if usuario_signed_in? %>
             Bem vindo <strong><%= current_usuario.nome.upcase %></strong>.
@@ -48,12 +49,9 @@
             <%= link_to "Entrar", new_usuario_session_path, :class => 'navbar-link'  %>
           <% end %>
         </p>
-        
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-<% else %>
-    <%#= render "devise/shared/links" %>
 <% end %>
 <script>
   $(document).ready(function () {

@@ -1,2 +1,6 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<body class="text-center">
+  <img class="mb-4" src="http://villatreviso.com.br/desv/logo/Logo_VillaTreviso_EmailCadastro.png" alt="" width="552" height="251">
+  <% unless current_usuario.ativo %>
+    <h1>Aguarde a liberação do seu Cadastro.</h1>
+  <% end %>
+</body>
