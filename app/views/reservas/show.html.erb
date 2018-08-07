@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @reserva.codigo %>
+</p>
+
+<p>
+  <strong>Data reserva:</strong>
+  <%= @reserva.data_reserva %>
+</p>
+
+<p>
+  <strong>Data solicitacao:</strong>
+  <%= @reserva.data_solicitacao %>
+</p>
+
+<p>
+  <strong>Area comum:</strong>
+  <%= @reserva.area_comum_id %>
+</p>
+
+<p>
+  <strong>Usuario reserva:</strong>
+  <%= @reserva.usuario_reserva_id %>
+</p>
+
+<p>
+  <strong>Usuario liberador:</strong>
+  <%= @reserva.usuario_liberador_id %>
+</p>
+
+<p>
+  <strong>Situacao reserva:</strong>
+  <%= @reserva.situacao_reserva_id %>
+</p>
+
+<p>
+  <strong>Observacao:</strong>
+  <%= @reserva.observacao %>
+</p>
+
+<p>
+  <strong>Periodo reserva:</strong>
+  <%= @reserva.periodo_reserva_id %>
+</p>
+
+<p>
+  <strong>Obervacao liberador:</strong>
+  <%= @reserva.obervacao_liberador %>
+</p>
+
+<%= link_to 'Edit', edit_reserva_path(@reserva) %> |
+<%= link_to 'Back', reservas_path %>

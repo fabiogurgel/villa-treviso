@@ -1,0 +1,102 @@
+<%= form_for(reserva) do |f| %>
+  <% if reserva.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reserva.errors.count, "error") %> prohibited this reserva from being saved:</h2>
+
+      <ul>
+      <% reserva.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+     <div class="col-md-4">
+      <%= f.label :codigo %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :data_reserva %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :data_solicitacao %>
+    </div>
+  </div>
+
+  <div class="row">
+     <div class="col-md-4">
+      <%= f.text_field :codigo, {value: @proximo_codigo, readonly: true, class:"form-control"} %>
+    </div>
+
+     <div class="col-md-4">
+      <%= f.date_select :data_reserva %>
+    </div>
+
+     <div class="col-md-4">
+      <%= f.date_select :data_solicitacao, {disabled: true, class:"form-control"} %>
+    </div>
+  </div>
+  </br>
+
+  <div class="row">
+     <div class="col-md-4">
+      <%= f.label :area_comum_id %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :usuario_reserva_id %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :situacao_reserva_id %>
+    </div>
+  </div>
+
+  <div class="row">
+     <div class="col-md-4">
+        <%= f.select :area_comum_id, @area_comuns.collect{|a| ["#{a.descricao} - #{a.localizacao}", a.id]}, {:prompt=>"Selecione Área Comum"}, {:required => true, :class => 'form-control'} %>
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :usuario_reserva_id, { value: [@usuario_signed_in], readonly: true, class: 'form-control' } %>
+    </div>
+
+    <div class="col-md-4">
+      <%= f.text_field :situacao_reserva_id, {value: @situacao_reserva.descricao, :readonly => true, :class => 'form-control'} %>
+    </div>
+  </div>
+    </br>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.label :periodo_reserva_id %>
+    </div>
+     <div class="col-md-8">
+      <%= f.label :observacao %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.select :periodo_reserva_id, @periodo_reserva.collect{|pr| [pr.descricao, pr.id]}, {:prompt=>"Selecione um Periodo"}, {:required => true, :class => 'form-control'} %>
+    </div>
+     <div class="col-md-8">
+      <%= f.text_area :observacao, { :class => 'form-control'} %>
+    </div>
+  </div>
+    </br>
+
+  <div class="row">
+    <div class="col-md-12">
+      <%= f.label :obervacao_liberador %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= f.text_area :obervacao_liberador,{ :readonly => true, :class => 'form-control'} %>
+    </div>
+  </div>
+</br>
+  <div class="row">
+    <div class="col-md-4">
+        <button type="submit" class="btn btn-primary">Criar Reserva</button>
+    </div>
+  </div>
+  </br>
+<% end %>

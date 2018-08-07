@@ -41,6 +41,18 @@ gem 'jquery_mask_rails'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # TESTING
+  gem 'rspec-rails', '3.7.2'
+  gem 'rspec-its', '1.2.0'
+  gem 'factory_bot_rails', '4.10.0'
+  gem 'faker', '1.8.7'
+  gem 'simplecov', '0.16.1'
+  gem 'mocha', '1.5.0' # Ver mudanças
+  gem 'shoulda', '3.5.0'#, '1.0.0'
+  gem 'shoulda-matchers', '2.8.0'
+  gem 'rubocop', '0.57.2', require: false
+  gem 'rubocop-rspec', '1.27.0'
+  gem "better_errors", '2.4.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end

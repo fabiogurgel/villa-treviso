@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180726015112) do
+ActiveRecord::Schema.define(version: 20180807014208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,24 @@ ActiveRecord::Schema.define(version: 20180726015112) do
     t.string   "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reservas", force: :cascade do |t|
+    t.integer  "codigo"
+    t.date     "data_reserva"
+    t.date     "data_solicitacao"
+    t.integer  "area_comuns_id"
+    t.integer  "usuario_reserva_id"
+    t.integer  "usuario_liberador_id"
+    t.integer  "situacao_reserva_id"
+    t.text     "observacao"
+    t.integer  "periodo_reserva_id"
+    t.text     "obervacao_liberador"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["area_comuns_id"], name: "index_reservas_on_area_comuns_id", using: :btree
+    t.index ["periodo_reserva_id"], name: "index_reservas_on_periodo_reserva_id", using: :btree
+    t.index ["situacao_reserva_id"], name: "index_reservas_on_situacao_reserva_id", using: :btree
   end
 
   create_table "situacao_reservas", force: :cascade do |t|
@@ -110,4 +128,7 @@ ActiveRecord::Schema.define(version: 20180726015112) do
   add_foreign_key "area_comuns", "tipo_area_comuns"
   add_foreign_key "conta", "agencia"
   add_foreign_key "conta", "clientes"
+  add_foreign_key "reservas", "area_comuns", column: "area_comuns_id"
+  add_foreign_key "reservas", "periodo_reservas"
+  add_foreign_key "reservas", "situacao_reservas"
 end

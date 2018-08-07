@@ -33,7 +33,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li role="separator" class="divider"></li>
-                 <li><%= link_to('Em Construção', new_tipo_usuario_path) %></li>
+                 <li><%= link_to('Nova Reserva', new_reserva_path) %></li>
                 <li role="separator" class="divider"></li>
               </ul>
             </li>
@@ -41,7 +41,7 @@
         <% end %>
         <p class="navbar-text pull-right">
           <% if usuario_signed_in? %>
-            Bem vindo <strong><%= current_usuario.nome.upcase %></strong>.
+            Bem vindo <strong><%= current_usuario.email.upcase %></strong>.
             <%= link_to 'Editar Perfil', edit_usuario_registration_path, :class => 'navbar-link' %> |
             <%= link_to "Sair", destroy_usuario_session_path, method: :delete, :class => 'navbar-link'  %>
           <% else %>
